@@ -15,5 +15,11 @@
        </tbody>
      </table>
 </div>
-<!--ユーザー投稿一覧-->
+<div>
+  <%= link_to(edit_user_path(@user.id)) do %>
+    <p>アイコン</p>
+  <% end %>
+</div>
+<!--アイコンにリンク張るの困ったらこれ https://qiita.com/kenta-nishimoto-1111/items/3977929de16bdbe160fd-->
+<!--ユーザー投稿一覧
 <!--新規投稿-->
