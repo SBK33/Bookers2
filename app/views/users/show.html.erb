@@ -1,7 +1,27 @@
 <!--カレントユーザーとページのユーザーIDが異なる場合のみ変更-->
 <div>
-  <h2>共通フォーマット呼ぶ</h2>
-
+  <%= render 'books/list', user: @user, book: @book_new %>
 </div>
+
 <!--アイコンにリンク張るの困ったらこれ https://qiita.com/kenta-nishimoto-1111/items/3977929de16bdbe160fd-->
-<!--ユーザー投稿一覧
+<div>
+  <h2>Books</h2>
+     <table class="table">
+       <thead>
+         <tr>
+           <th></th>
+           <th>Title</th>
+           <th>Opinion</th>
+         </tr>
+       </thead>
+       <% @books.each do |book| %>
+           <tbody>
+             <tr>
+               <th><%= image_tag book.user.get_profile_image(80,80) %></th>
+               <th><%= link_to book.title, book_path(book.id) %></th>
+               <th><%= book.body %></th>
+             </tr>
+           </tbody>
+        <% end %>
+     </table>
+</div>
