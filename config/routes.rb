@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update, :destroy]
-  resources :books, only: [:new, :index, :show , :create, :edit, :update, :destroy]
+  resources :books, only: [:index, :show , :create, :edit, :update, :destroy]
   #URL名は確認すること
   #usersに対するルーティングの重複
 

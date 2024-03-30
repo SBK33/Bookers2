@@ -1,6 +1,9 @@
 <div>
-  <h2>Book detail</h2>
+  <%= render 'list', user: @book.user, book: @book_new %>
+</div>
 
+<div>
+  <h2>Book detail</h2>
    <table class="table">
      <% if @book.user == current_user %>
        <tbody>

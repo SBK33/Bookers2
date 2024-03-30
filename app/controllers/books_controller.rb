@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-  def new
-    @book = Book.new
-  end
+#  def new
+#    @book = Book.new
+#  end
 
   def create
     @book = Book.new(book_params)
@@ -22,10 +22,16 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    #共通フォーマット向け記述
+    @book_new = Book.new
+    @user = current_user
+
   end
 
   def show
     @book = Book.find(params[:id])
+      #共通フォーマット向け記述
+    @book_new = Book.new
   end
 
   def destroy
