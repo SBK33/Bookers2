@@ -9,13 +9,13 @@ class BooksController < ApplicationController
     @book.save
     redirect_to book_path(@book.id)
   end
-  
+
   def edit
-    
+
   end
 
   def index
-    @books =Book.all
+    @books = Book.all
   end
 
   def show
