@@ -11,11 +11,9 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books = Book.all
-      @book_new = Book.new
       @user = current_user
       render :index
     end
-
   end
 
   def edit
@@ -24,15 +22,18 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    flash[:notice] = "You have updated book successfully."
-    redirect_to book_path(@book.id)
+    if @book.update(book_params)
+      flash[:notice] = "You have updated book successfully."
+      redirect_to book_path(@book.id)
+    else
+      render :edit
+    end
   end
 
   def index
     @books = Book.all
     #共通フォーマット向け記述
-    @book_new = Book.new
+    @book = Book.new
     @user = current_user
 
   end
