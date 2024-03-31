@@ -13,13 +13,19 @@ class User < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
+  
+    validates :name, 
+      uniqueness: true,
+      length: { in: 2..20 }
+      
+    validates :introduction,
+      length: { maximum: 50 }
 
 end
-
 
 #name：一意性を持たせ、かつ2～20文字の範囲で設定してください。
 #introduction：最大50文字までに設定してください。
 
 #以下の処理の失敗時にエラーメッセージを表示させてください。エラーメッセージには、「error」の言葉が含まれるようにしてください。
-#ユーザ新規登録
+#ユーザ新規登録→勝手に出るかな？
 #ユーザのプロフィール情報更新
