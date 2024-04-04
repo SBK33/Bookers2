@@ -1,17 +1,22 @@
-  <% if @book.errors.any? %>
-    <div id ="error_messages">
-      <h2> <%= @book.errors.count %> errors prohibited this book from being saved:</h2>
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="container px-5 px-sm-0">
+    <div>
+      <% if @book.errors.any? %>
+        <div id ="error_messages">
+          <h2> <%= @book.errors.count %> errors prohibited this book from being saved:</h2>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+    <div class="row">
+        <div class="col-md-3">
+            <%= render 'list', user: @user, book: @book %>
 
-<div>
-  <%= render 'list', user: @user, book: @book %>
-</div>
+        </div>
+        <div class="col-md-8 offset-md-1">
 
 <div>
   <h2>Books</h2>
@@ -38,3 +43,10 @@
         <% end %>
      </table>
 </div>
+
+        </div>
+    </div>
+</div>
+
+
+
